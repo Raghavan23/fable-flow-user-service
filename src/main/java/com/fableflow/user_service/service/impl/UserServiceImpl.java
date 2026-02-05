@@ -48,6 +48,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserResponse getByEmail(String email) {
+
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UserNotFoundException(email));
+
+        return mapToResponse(user);
+    }
+
+
+    @Override
     public Page<UserResponse> getAllUsers(int page, int size) {
 
         PageRequest pageable = PageRequest.of(page, size);

@@ -34,4 +34,11 @@ public class UserController {
 
         return userService.getAllUsers(page, size);
     }
+
+    @GetMapping("/me")
+    public UserResponse getMe(
+        @RequestHeader("X-User-Email") String email) {
+        return userService.getByEmail(email);
+    }
+
 }

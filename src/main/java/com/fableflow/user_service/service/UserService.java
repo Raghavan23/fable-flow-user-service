@@ -10,5 +10,7 @@ public interface UserService {
 
     UserResponse getUserById(Long id);
 
+    UserResponse getByEmail(String email);
+
     Page<UserResponse> getAllUsers(int page,int size);
 }
